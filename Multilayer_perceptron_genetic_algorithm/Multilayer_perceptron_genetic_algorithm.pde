@@ -7,7 +7,7 @@ final float mutationRate = 0.5;
 float startPosX = 100, startPosY = 645;
 float startAngle = -1.51;
 final int timeToNextCheckpoint = 140, rewardForReachingCheckpoint = 150;
-final float maxSpeed = 3.5, maxAngleAcceleration = 0.02, maxAcceleration = 0.04, 
+final float maxSpeed = 3.5, maxAngleAcceleration = 0.04, maxAcceleration = 0.08, 
   carVectLength = 100;
 final int populationSize = 100;
 final float selectionPercent = 0.30;
@@ -16,7 +16,7 @@ final int minMutationNum = 6, maxMutationNum = 12;
 
 void setup() {
   size(800, 800);
-  frameRate(60);  
+  frameRate(80);  
   focused = true;
 
   restart();

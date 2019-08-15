@@ -41,10 +41,10 @@ class Perceptron {
         hs[i + 1][i1] += hs[i][i2] * ws[i][i1][i2];
       }
       hs[i + 1][i1] += wb[i][i1] * bias;
+      
       // normalize value on output neurons
-      //if (hs[i + 1][i1] > 1.0) {
-      //  hs[i + 1][i1] = 1f;
-      //}
+      hs[i + 1][i1] = (hs[i + 1][i1] > 1f) ? 1f :
+        ((hs[i + 1][i1] < 0f) ? 0f : hs[i + 1][i1]);
     }
   }
 
