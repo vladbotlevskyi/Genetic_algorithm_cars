@@ -6,6 +6,9 @@ class Perceptron {
   float bias;
   float[][] wb;
   float rate;
+  
+  final float startingWeightsLowerBorder = 0.;
+  final float startingWeightsTopBorder = 0.;
 
   Perceptron(int[] _layers, float _rate) {
     layers = _layers;
@@ -32,6 +35,9 @@ class Perceptron {
         }
         hs[i + 1][i1] += wb[i][i1] * bias;
         hs[i + 1][i1] = func(hs[i + 1][i1]);
+
+        // normalize values on neurons
+        hs[i + 1][i1] = (hs[i + 1][i1] > 1f) ? 1f : hs[i + 1][i1];
       }
     }
 
@@ -41,10 +47,10 @@ class Perceptron {
         hs[i + 1][i1] += hs[i][i2] * ws[i][i1][i2];
       }
       hs[i + 1][i1] += wb[i][i1] * bias;
-      
-      // normalize value on output neurons
+
+      // normalize values on output neurons
       hs[i + 1][i1] = (hs[i + 1][i1] > 1f) ? 1f :
-        ((hs[i + 1][i1] < 0f) ? 0f : hs[i + 1][i1]);
+        ((hs[i + 1][i1] < -1f) ? -1f : hs[i + 1][i1]);
     }
   }
 
@@ -69,7 +75,7 @@ class Perceptron {
         for (int i2 = 0; i2 < ws[i][i1].length; i2++) {
           ws[i][i1][i2] = random(-1, 1);
         }
-        wb[i][i1] = random(-1, 1);
+        wb[i][i1] = random(startingWeightsLowerBorder, startingWeightsTopBorder);
       }
     }
   }

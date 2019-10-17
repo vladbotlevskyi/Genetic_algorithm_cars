@@ -120,8 +120,8 @@ void perceptronDrive(Car car) {
   }
   float[] result = car.perceptron.getResult(new float[]{car.speed / maxSpeed, 
     vectInp[0], vectInp[1], vectInp[2]});
-  car.speed += maxAcceleration * (result[0] - 0.5);
-  car.updateCarAngle(car.angle + (result[1] - 0.5) * maxAngleAcceleration);
+  car.speed += maxAcceleration * (result[0]);
+  car.updateCarAngle(car.angle + (result[1]) * maxAngleAcceleration);
   limitCarSpeed(car);
 }
 
