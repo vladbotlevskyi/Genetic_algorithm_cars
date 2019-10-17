@@ -14,6 +14,8 @@ final float selectionPercent = 0.30;
 final int leftFromPrevGen = 25;
 final int minMutationNum = 6, maxMutationNum = 12;
 
+int genNumber = 1;
+
 void setup() {
   size(800, 800);
   frameRate(80);  
@@ -31,12 +33,13 @@ void draw() {
   }
 
   if (!editModeOn) {
-    perforIteration();
+    performIteration();
+    showNumberOfGenerations();
   }
   showEditingMode();
 }
 
-void perforIteration() {
+void performIteration() {
   for (int i = 0; i < cars.length; i++) {
   driving:
     {
@@ -148,6 +151,7 @@ void restart() {
       startPosX, startPosY, startAngle, carVectLength, timeToNextCheckpoint);
   }
   readBoundariesFromFile();
+  genNumber = 1;
 }
 
 void createNextGen() {
@@ -172,6 +176,7 @@ void createNextGen() {
     }
   }
   cars = nextGen;
+  genNumber++;
 }
 
 Car crossPerceptronByNPointsRand(Car c1, Car c2) {

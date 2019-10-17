@@ -14,6 +14,14 @@ void restoreClickPts() {
   cutY1 = -1;
 }
 
+void showNumberOfGenerations() {
+  int textSize = 20;
+  String text = "Generation №: " + genNumber;
+  textSize(textSize);
+  fill(255);
+  text(text, width - textWidth(text) - 10, 20);
+}
+
 void showEditingMode() {
   if (editModeOn) {    
 
