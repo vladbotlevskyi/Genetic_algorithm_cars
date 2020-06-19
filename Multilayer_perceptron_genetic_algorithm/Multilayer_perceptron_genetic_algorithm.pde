@@ -164,8 +164,8 @@ void createNextGen() {
   }
   int selectionSize = int(((float)populationSize) * selectionPercent);
   for (int i = leftFromPrevGen; i < nextGen.length; i++) {
-    Car c1 = cars[int(random(0, selectionSize))];
-    Car c2 = cars[int(random(0, selectionSize))];
+    Car c1 = cars[int(random(0, random(0, random(0, selectionSize))))];
+    Car c2 = cars[int(random(random(0, selectionSize), nextGen.length))];
     nextGen[i] = crossPerceptronByNPointsRand(c1, c2);
     //adding random mutations
     if (int(random(0f, 2f)) == 1) {
