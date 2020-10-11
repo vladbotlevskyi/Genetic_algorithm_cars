@@ -4,7 +4,7 @@ Car[] cars;
 final int[] layers = new int[]{4, 10, 5, 2};
 final float mutationRate = 0.5;
 
-float startPosX = 100, startPosY = 645;
+float startPosX = 240, startPosY = 600;
 float startAngle = -1.51;
 final int timeToNextCheckpoint = 140, rewardForReachingCheckpoint = 150;
 final float maxSpeed = 3.5, maxAngleAcceleration = 0.04, maxAcceleration = 0.08, 
